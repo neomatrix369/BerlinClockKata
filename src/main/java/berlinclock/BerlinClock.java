@@ -10,12 +10,13 @@ public class BerlinClock {
     final String firstMiddleRow = "[O]      [O]      [O]      [O]";
 
     int minutes = time.getMinute();
-    String secondMiddleRow;
-    if (minutes > 4) {
+    String secondMiddleRow = secondMiddleRowLights(0);
+    if (minutes > 55) {
+      secondMiddleRow = secondMiddleRowLights(55);
+      minutes = minutes - 55;
+    } else if (minutes > 4) {
       secondMiddleRow = secondMiddleRowLights(minutes);
       minutes = 0;
-    } else {
-      secondMiddleRow = secondMiddleRowLights(0);
     }
 
     final String bottomRow = bottomRowLights(minutes);
