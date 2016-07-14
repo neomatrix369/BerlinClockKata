@@ -6,15 +6,7 @@ import java.time.LocalTime;
 
 public class BerlinClock {
   public static String displayTimeFor(LocalTime time) {
-    if (time.getMinute() == 1) {
-      return getFormattedClockFor(bottomRowLights(1));
-    }
-
-    if (time.getMinute() == 4) {
-      return getFormattedClockFor(bottomRowLights(4));
-    }
-
-    return getFormattedClockFor(bottomRowLights(0));
+    return getFormattedClockFor(bottomRowLights(time.getMinute()));
   }
 
   private static String[] bottomRowLights(int value) {
