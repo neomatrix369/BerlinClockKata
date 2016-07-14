@@ -44,4 +44,13 @@ public class BerlinClockPresenterShould {
             "[R][Y][Y][O][O][O][O][O][O][O][O]\n" +
             "[O]      [O]      [O]      [O]\n"));
   }
+
+  @Test public void
+  show_clock_with_the_1st_and_2nd_parts_of_the_third_row_lit_up_for_30_minutes_past_midnight() {
+    assertThat(BerlinClock.displayTimeFor(MIDNIGHT.plus(30, MINUTES)),
+        is("[O]      [O]      [O]      [O]\n" +
+            "[O]      [O]      [O]      [O]\n" +
+            "[R][Y][Y][R][Y][Y][O][O][O][O][O]\n" +
+            "[O]      [O]      [O]      [O]\n"));
+  }
 }
