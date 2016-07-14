@@ -28,11 +28,20 @@ public class BerlinClockPresenterShould {
 
 
   @Test public void
-  show_clock_with_last_row_litup_for_four_minutes_past_midnight() {
+  show_clock_with_last_row_lit_up_for_four_minutes_past_midnight() {
     assertThat(BerlinClock.displayTimeFor(MIDNIGHT.plus(4, MINUTES)),
         is("[O]      [O]      [O]      [O]\n" +
            "[O]      [O]      [O]      [O]\n" +
            "[O][O][O][O][O][O][O][O][O][O][O]\n" +
            "[Y]      [Y]      [Y]      [Y]\n"));
+  }
+
+  @Test public void
+  show_clock_with_the_first_part_of_the_third_row_lit_up_for_15_minutes_past_midnight() {
+    assertThat(BerlinClock.displayTimeFor(MIDNIGHT.plus(15, MINUTES)),
+        is("[O]      [O]      [O]      [O]\n" +
+            "[O]      [O]      [O]      [O]\n" +
+            "[R][Y][Y][O][O][O][O][O][O][O][O]\n" +
+            "[O]      [O]      [O]      [O]\n"));
   }
 }
