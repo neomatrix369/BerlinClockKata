@@ -1,35 +1,23 @@
 package berlinclock;
 
+import static java.lang.String.format;
+
 import java.time.LocalTime;
 
 public class BerlinClock {
   public static String displayTimeFor(LocalTime time) {
     if (time.getMinute() == 1) {
-      return
-          new StringBuilder()
-              .append("[O]      [O]      [O]      [O]\n")
-              .append("[O]      [O]      [O]      [O]\n")
-              .append("[O][O][O][O][O][O][O][O][O][O][O]\n")
-              .append("[Y]      [O]      [O]      [O]\n")
-              .toString();
+      return getFormattedClock("Y", "O", "O", "O");
     }
 
     if (time.getMinute() == 4) {
-      return
-          new StringBuilder()
-              .append("[O]      [O]      [O]      [O]\n")
-              .append("[O]      [O]      [O]      [O]\n")
-              .append("[O][O][O][O][O][O][O][O][O][O][O]\n")
-              .append("[Y]      [Y]      [Y]      [Y]\n")
-              .toString();
+      return getFormattedClock("Y", "Y", "Y", "Y");
     }
 
-    return
-        new StringBuilder()
-            .append("[O]      [O]      [O]      [O]\n")
-            .append("[O]      [O]      [O]      [O]\n")
-            .append("[O][O][O][O][O][O][O][O][O][O][O]\n")
-            .append("[O]      [O]      [O]      [O]\n")
-            .toString();
+    return getFormattedClock("O", "O", "O", "O");
+  }
+
+  private static String getFormattedClock(String... state) {
+    return format("[O]      [O]      [O]      [O]\n[O]      [O]      [O]      [O]\n[O][O][O][O][O][O][O][O][O][O][O]\n[%s]      [%s]      [%s]      [%s]\n", state);
   }
 }
