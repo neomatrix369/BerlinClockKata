@@ -6,8 +6,7 @@ import java.time.LocalTime;
 
 public class BerlinClock {
   public static String displayTimeFor(LocalTime time) {
-    final String[] states = bottomRowLights(time.getMinute());
-    return format("[O]      [O]      [O]      [O]\n[O]      [O]      [O]      [O]\n[O][O][O][O][O][O][O][O][O][O][O]\n[%s]      [%s]      [%s]      [%s]\n", states);
+    return format("[O]      [O]      [O]      [O]\n[O]      [O]      [O]      [O]\n[O][O][O][O][O][O][O][O][O][O][O]\n[%s]      [%s]      [%s]      [%s]\n", bottomRowLights(time.getMinute()));
   }
 
   private static String[] bottomRowLights(int value) {
