@@ -5,14 +5,15 @@ import static java.lang.String.format;
 import java.time.LocalTime;
 
 public class BerlinClock {
-  private static final int FIVE_MINUTES = 5;
+  public static final int FIVE_HOURS = 5;
+  private static final int FIVE_MINUTES = FIVE_HOURS;
 
   private static final String RED_LIGHT = "R";
   private static final String YELLOW_LIGHT = "Y";
   private static final String LIGHT_OFF = "O";
 
   private static final String TOP_ROW_FORMATTER =
-      format("[%s]      [%s]      [%s]      [%s]", LIGHT_OFF, LIGHT_OFF, LIGHT_OFF, LIGHT_OFF);
+      "[%s]      [%s]      [%s]      [%s]";
   private static final String FIRST_MIDDLE_ROW_FORMATTER =
       "[%s]      [%s]      [%s]      [%s]";
   private static final String SECOND_MIDDLE_ROW_FORMATTER =
@@ -24,15 +25,28 @@ public class BerlinClock {
     int hours = time.getHour();
     int minutes = time.getMinute();
 
-    final String firstMiddleRow = getFirstMiddleRowLights(hours);
+    final String topRow = getTopRow(hours);
+    final String firstMiddleRow = getFirstMiddleRowLights(hours % FIVE_HOURS);
     final String secondMiddleRow = secondMiddleRowLights(minutes);
     final String bottomRow = bottomRowLights(minutes % FIVE_MINUTES);
 
     return format("%s\n%s\n%s\n%s\n",
-        TOP_ROW_FORMATTER,
+        topRow,
         firstMiddleRow,
         secondMiddleRow,
         bottomRow);
+  }
+
+  private static String getTopRow(int hours) {
+    String[] topRow = new String[] {LIGHT_OFF, LIGHT_OFF, LIGHT_OFF, LIGHT_OFF};
+
+    int count = hours / FIVE_HOURS;
+
+    for (int index=0; index<count && index<topRow.length; index++) {
+      topRow[index] = RED_LIGHT;
+    }
+
+    return format(TOP_ROW_FORMATTER, topRow);
   }
 
   private static String getFirstMiddleRowLights(int hours) {
