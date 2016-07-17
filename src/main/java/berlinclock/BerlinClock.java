@@ -14,23 +14,35 @@ public class BerlinClock {
   private static final String TOP_ROW_FORMATTER =
       format("[%s]      [%s]      [%s]      [%s]", LIGHT_OFF, LIGHT_OFF, LIGHT_OFF, LIGHT_OFF);
   private static final String FIRST_MIDDLE_ROW_FORMATTER =
-      format("[%s]      [%s]      [%s]      [%s]", LIGHT_OFF, LIGHT_OFF, LIGHT_OFF, LIGHT_OFF);
+      "[%s]      [%s]      [%s]      [%s]";
   private static final String SECOND_MIDDLE_ROW_FORMATTER =
       "[%s][%s][%s][%s][%s][%s][%s][%s][%s][%s][%s]";
   private static final String BOTTOM_ROW_FORMATTER =
       "[%s]      [%s]      [%s]      [%s]";
 
   public static String displayTimeFor(LocalTime time) {
+    int hours = time.getHour();
     int minutes = time.getMinute();
 
+    final String firstMiddleRow = getFirstMiddleRowLights(hours);
     final String secondMiddleRow = secondMiddleRowLights(minutes);
     final String bottomRow = bottomRowLights(minutes % FIVE_MINUTES);
 
     return format("%s\n%s\n%s\n%s\n",
         TOP_ROW_FORMATTER,
-        FIRST_MIDDLE_ROW_FORMATTER,
+        firstMiddleRow,
         secondMiddleRow,
         bottomRow);
+  }
+
+  private static String getFirstMiddleRowLights(int hours) {
+    String firstMiddleRow[] = new String[] {LIGHT_OFF, LIGHT_OFF, LIGHT_OFF, LIGHT_OFF};
+
+    if (hours == 1) {
+      firstMiddleRow[0] = RED_LIGHT;
+    }
+
+    return format(FIRST_MIDDLE_ROW_FORMATTER, firstMiddleRow);
   }
 
   private static String secondMiddleRowLights(int minutes) {

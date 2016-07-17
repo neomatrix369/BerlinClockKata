@@ -3,6 +3,7 @@ package berlinclock;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 import static java.time.LocalTime.MIDNIGHT;
+import static java.time.temporal.ChronoUnit.HOURS;
 import static java.time.temporal.ChronoUnit.MINUTES;
 import static java.util.Arrays.asList;
 import static berlinclock.BerlinClock.displayTimeFor;
@@ -127,6 +128,13 @@ public class BerlinClockConverterShould {
                         "[O]      [O]      [O]      [O]\n" +
                         "[Y][Y][R][Y][Y][R][Y][Y][R][Y][Y]\n" +
                         "[Y]      [Y]      [Y]      [Y]\n"
+            },
+            {
+                MIDNIGHT.plus(1, HOURS).plus(10, MINUTES),
+                    "[O]      [O]      [O]      [O]\n" +
+                    "[R]      [O]      [O]      [O]\n" +
+                    "[Y][Y][O][O][O][O][O][O][O][O][O]\n" +
+                    "[O]      [O]      [O]      [O]\n"
             }
         }
     );
