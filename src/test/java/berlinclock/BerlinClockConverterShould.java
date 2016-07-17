@@ -135,6 +135,13 @@ public class BerlinClockConverterShould {
                     "[R]      [O]      [O]      [O]\n" +
                     "[Y][Y][O][O][O][O][O][O][O][O][O]\n" +
                     "[O]      [O]      [O]      [O]\n"
+            },
+            {
+                MIDNIGHT.plus(2, HOURS).plus(30, MINUTES),
+                    "[O]      [O]      [O]      [O]\n" +
+                    "[R]      [R]      [O]      [O]\n" +
+                    "[Y][Y][R][Y][Y][R][O][O][O][O][O]\n" +
+                    "[O]      [O]      [O]      [O]\n"
             }
         }
     );

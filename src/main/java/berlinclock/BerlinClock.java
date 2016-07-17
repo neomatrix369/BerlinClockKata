@@ -38,8 +38,10 @@ public class BerlinClock {
   private static String getFirstMiddleRowLights(int hours) {
     String firstMiddleRow[] = new String[] {LIGHT_OFF, LIGHT_OFF, LIGHT_OFF, LIGHT_OFF};
 
-    if (hours == 1) {
-      firstMiddleRow[0] = RED_LIGHT;
+    for (int index=0; index<firstMiddleRow.length; index++) {
+      if (index < hours) {
+        firstMiddleRow[index] = RED_LIGHT;
+      }
     }
 
     return format(FIRST_MIDDLE_ROW_FORMATTER, firstMiddleRow);
