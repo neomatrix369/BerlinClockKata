@@ -11,12 +11,14 @@ public class BerlinClock {
   private static final String YELLOW_LIGHT = "Y";
   private static final String LIGHT_OFF = "O";
 
-  public static final String TOP_ROW_FORMATTER =
+  private static final String TOP_ROW_FORMATTER =
       format("[%s]      [%s]      [%s]      [%s]", LIGHT_OFF, LIGHT_OFF, LIGHT_OFF, LIGHT_OFF);
-  public static final String FIRST_MIDDLE_ROW_FORMATTER =
+  private static final String FIRST_MIDDLE_ROW_FORMATTER =
       format("[%s]      [%s]      [%s]      [%s]", LIGHT_OFF, LIGHT_OFF, LIGHT_OFF, LIGHT_OFF);
-  public static final String SECOND_MIDDLE_ROW_FORMATTER =
+  private static final String SECOND_MIDDLE_ROW_FORMATTER =
       "[%s][%s][%s][%s][%s][%s][%s][%s][%s][%s][%s]";
+  private static final String BOTTOM_ROW_FORMATTER =
+      "[%s]      [%s]      [%s]      [%s]";
 
   public static String displayTimeFor(LocalTime time) {
     int minutes = time.getMinute();
@@ -44,10 +46,9 @@ public class BerlinClock {
   private static void switchBlocksInTheMiddleRowOnOrOff(String[] row, int minutes) {
     int count = minutes / FIVE_MINUTES;
     for (int index = 0; index<count && index < row.length; index++) {
+      row[index] = YELLOW_LIGHT;
       if (replace1369thPositionsWithRed(index)) {
         row[index] = RED_LIGHT;
-      } else  {
-        row[index] = YELLOW_LIGHT;
       }
     }
   }
@@ -55,10 +56,9 @@ public class BerlinClock {
   private static String getFormattedMiddle(String[] row) {return format(SECOND_MIDDLE_ROW_FORMATTER, row);}
 
   private static boolean replace1369thPositionsWithRed(int index) {
-    return (index == 0) ||
-        (index % 3 == 0) ||
-        (index % 6 == 0) ||
-        (index % 9 == 0);
+    return  (index == 2) ||
+            (index == 5) ||
+            (index == 8);
   }
 
   private static String bottomRowLights(int minutes) {
@@ -68,6 +68,6 @@ public class BerlinClock {
         row[index] = YELLOW_LIGHT;
       }
     }
-    return format("[%s]      [%s]      [%s]      [%s]", row);
+    return format(BOTTOM_ROW_FORMATTER, row);
   }
 }

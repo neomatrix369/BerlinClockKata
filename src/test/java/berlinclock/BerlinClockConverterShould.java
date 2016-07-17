@@ -46,59 +46,87 @@ public class BerlinClockConverterShould {
             },
             {
                 MIDNIGHT.plus(5, MINUTES),
-                    "[O]      [O]      [O]      [O]\n" +
-                    "[O]      [O]      [O]      [O]\n" +
-                    "[R][O][O][O][O][O][O][O][O][O][O]\n" +
-                    "[O]      [O]      [O]      [O]\n"
+                        "[O]      [O]      [O]      [O]\n" +
+                        "[O]      [O]      [O]      [O]\n" +
+                        "[Y][O][O][O][O][O][O][O][O][O][O]\n" +
+                        "[O]      [O]      [O]      [O]\n"
             },
             {
                 MIDNIGHT.plus(6, MINUTES),
-                    "[O]      [O]      [O]      [O]\n" +
-                    "[O]      [O]      [O]      [O]\n" +
-                    "[R][O][O][O][O][O][O][O][O][O][O]\n" +
-                    "[Y]      [O]      [O]      [O]\n"
+                        "[O]      [O]      [O]      [O]\n" +
+                        "[O]      [O]      [O]      [O]\n" +
+                        "[Y][O][O][O][O][O][O][O][O][O][O]\n" +
+                        "[Y]      [O]      [O]      [O]\n"
             },
             {
                 MIDNIGHT.plus(11, MINUTES),
-                    "[O]      [O]      [O]      [O]\n" +
-                    "[O]      [O]      [O]      [O]\n" +
-                    "[R][Y][O][O][O][O][O][O][O][O][O]\n" +
-                    "[Y]      [O]      [O]      [O]\n"
+                        "[O]      [O]      [O]      [O]\n" +
+                        "[O]      [O]      [O]      [O]\n" +
+                        "[Y][Y][O][O][O][O][O][O][O][O][O]\n" +
+                        "[Y]      [O]      [O]      [O]\n"
             },
             {
                 MIDNIGHT.plus(15, MINUTES),
-                    "[O]      [O]      [O]      [O]\n" +
-                    "[O]      [O]      [O]      [O]\n" +
-                    "[R][Y][Y][O][O][O][O][O][O][O][O]\n" +
-                    "[O]      [O]      [O]      [O]\n"
+                        "[O]      [O]      [O]      [O]\n" +
+                        "[O]      [O]      [O]      [O]\n" +
+                        "[Y][Y][R][O][O][O][O][O][O][O][O]\n" +
+                        "[O]      [O]      [O]      [O]\n"
             },
             {
                 MIDNIGHT.plus(22, MINUTES),
-                    "[O]      [O]      [O]      [O]\n" +
-                    "[O]      [O]      [O]      [O]\n" +
-                    "[R][Y][Y][R][O][O][O][O][O][O][O]\n" +
-                    "[Y]      [Y]      [O]      [O]\n"
+                        "[O]      [O]      [O]      [O]\n" +
+                        "[O]      [O]      [O]      [O]\n" +
+                        "[Y][Y][R][Y][O][O][O][O][O][O][O]\n" +
+                        "[Y]      [Y]      [O]      [O]\n"
             },
             {
                 MIDNIGHT.plus(30, MINUTES),
-                    "[O]      [O]      [O]      [O]\n" +
-                    "[O]      [O]      [O]      [O]\n" +
-                    "[R][Y][Y][R][Y][Y][O][O][O][O][O]\n" +
-                    "[O]      [O]      [O]      [O]\n"
+                        "[O]      [O]      [O]      [O]\n" +
+                        "[O]      [O]      [O]      [O]\n" +
+                        "[Y][Y][R][Y][Y][R][O][O][O][O][O]\n" +
+                        "[O]      [O]      [O]      [O]\n"
+            },
+            {
+                MIDNIGHT.plus(33, MINUTES),
+                        "[O]      [O]      [O]      [O]\n" +
+                        "[O]      [O]      [O]      [O]\n" +
+                        "[Y][Y][R][Y][Y][R][O][O][O][O][O]\n" +
+                        "[Y]      [Y]      [Y]      [O]\n"
+            },
+            {
+                MIDNIGHT.plus(40, MINUTES),
+                        "[O]      [O]      [O]      [O]\n" +
+                        "[O]      [O]      [O]      [O]\n" +
+                        "[Y][Y][R][Y][Y][R][Y][Y][O][O][O]\n" +
+                        "[O]      [O]      [O]      [O]\n"
             },
             {
                 MIDNIGHT.plus(45, MINUTES),
-                    "[O]      [O]      [O]      [O]\n" +
-                    "[O]      [O]      [O]      [O]\n" +
-                    "[R][Y][Y][R][Y][Y][R][Y][Y][O][O]\n" +
-                    "[O]      [O]      [O]      [O]\n"
+                        "[O]      [O]      [O]      [O]\n" +
+                        "[O]      [O]      [O]      [O]\n" +
+                        "[Y][Y][R][Y][Y][R][Y][Y][R][O][O]\n" +
+                        "[O]      [O]      [O]      [O]\n"
+            },
+            {
+                MIDNIGHT.plus(47, MINUTES),
+                        "[O]      [O]      [O]      [O]\n" +
+                        "[O]      [O]      [O]      [O]\n" +
+                        "[Y][Y][R][Y][Y][R][Y][Y][R][O][O]\n" +
+                        "[Y]      [Y]      [O]      [O]\n"
+            },
+            {
+                MIDNIGHT.plus(55, MINUTES),
+                        "[O]      [O]      [O]      [O]\n" +
+                        "[O]      [O]      [O]      [O]\n" +
+                        "[Y][Y][R][Y][Y][R][Y][Y][R][Y][Y]\n" +
+                        "[O]      [O]      [O]      [O]\n"
             },
             {
               MIDNIGHT.plus(59, MINUTES),
-                    "[O]      [O]      [O]      [O]\n" +
-                    "[O]      [O]      [O]      [O]\n" +
-                    "[R][Y][Y][R][Y][Y][R][Y][Y][R][Y]\n" +
-                    "[Y]      [Y]      [Y]      [Y]\n"
+                        "[O]      [O]      [O]      [O]\n" +
+                        "[O]      [O]      [O]      [O]\n" +
+                        "[Y][Y][R][Y][Y][R][Y][Y][R][Y][Y]\n" +
+                        "[Y]      [Y]      [Y]      [Y]\n"
             }
         }
     );
