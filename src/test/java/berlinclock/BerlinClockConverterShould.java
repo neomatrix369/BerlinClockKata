@@ -20,7 +20,7 @@ public class BerlinClockConverterShould {
   private final LocalTime givenTime;
   private final String displayClock;
 
-  @Parameters
+  @Parameters (name="{index}: for givenTime {0}")
   public static Collection<Object[]> data() {
     return asList(
         new Object[][]{
@@ -50,6 +50,13 @@ public class BerlinClockConverterShould {
                     "[O]      [O]      [O]      [O]\n" +
                     "[R][O][O][O][O][O][O][O][O][O][O]\n" +
                     "[O]      [O]      [O]      [O]\n"
+            },
+            {
+                MIDNIGHT.plus(6, MINUTES),
+                    "[O]      [O]      [O]      [O]\n" +
+                    "[O]      [O]      [O]      [O]\n" +
+                    "[R][O][O][O][O][O][O][O][O][O][O]\n" +
+                    "[Y]      [O]      [O]      [O]\n"
             },
             {
                 MIDNIGHT.plus(15, MINUTES),

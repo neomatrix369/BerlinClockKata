@@ -10,16 +10,9 @@ public class BerlinClock {
     final String firstMiddleRow = "[O]      [O]      [O]      [O]";
 
     int minutes = time.getMinute();
-    String secondMiddleRow = secondMiddleRowLights(0);
-    if (minutes > 55) {
-      secondMiddleRow = secondMiddleRowLights(55);
-      minutes = minutes - 55;
-    } else if (minutes > 4) {
-      secondMiddleRow = secondMiddleRowLights(minutes);
-      minutes = 0;
-    }
 
-    final String bottomRow = bottomRowLights(minutes);
+    final String secondMiddleRow = secondMiddleRowLights(minutes);
+    final String bottomRow = bottomRowLights(minutes % 5);
 
     return format("%s\n%s\n%s\n%s\n",
         topRow,
@@ -30,7 +23,7 @@ public class BerlinClock {
 
   private static String secondMiddleRowLights(int minutes) {
     final String[] row = {"O", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O"};
-    if (minutes == 0) return getFormattedMiddle(row);
+    if (minutes == 0 || minutes < 5) return getFormattedMiddle(row);
 
     for (int index=0; index<row.length; index++) {
       if ((intoMinutes(index)) >= minutes) return getFormattedMiddle(row);
