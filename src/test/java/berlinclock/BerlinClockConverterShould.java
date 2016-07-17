@@ -59,11 +59,25 @@ public class BerlinClockConverterShould {
                     "[Y]      [O]      [O]      [O]\n"
             },
             {
+                MIDNIGHT.plus(11, MINUTES),
+                    "[O]      [O]      [O]      [O]\n" +
+                    "[O]      [O]      [O]      [O]\n" +
+                    "[R][Y][O][O][O][O][O][O][O][O][O]\n" +
+                    "[Y]      [O]      [O]      [O]\n"
+            },
+            {
                 MIDNIGHT.plus(15, MINUTES),
                     "[O]      [O]      [O]      [O]\n" +
                     "[O]      [O]      [O]      [O]\n" +
                     "[R][Y][Y][O][O][O][O][O][O][O][O]\n" +
                     "[O]      [O]      [O]      [O]\n"
+            },
+            {
+                MIDNIGHT.plus(22, MINUTES),
+                    "[O]      [O]      [O]      [O]\n" +
+                    "[O]      [O]      [O]      [O]\n" +
+                    "[R][Y][Y][R][O][O][O][O][O][O][O]\n" +
+                    "[Y]      [Y]      [O]      [O]\n"
             },
             {
                 MIDNIGHT.plus(30, MINUTES),

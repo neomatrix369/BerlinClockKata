@@ -23,14 +23,14 @@ public class BerlinClock {
 
   private static String secondMiddleRowLights(int minutes) {
     final String[] row = {"O", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O"};
-    if (minutes == 0 || minutes < 5) return getFormattedMiddle(row);
+    if (minutes < 5) return getFormattedMiddle(row);
 
-    for (int index=0; index<row.length; index++) {
-      if ((intoMinutes(index)) >= minutes) return getFormattedMiddle(row);
+    int count = minutes / 5;
 
+    for (int index=0; index<count && index < row.length; index++) {
       if (replace1369thPositionsWithRed(index)) {
         row[index] = "R";
-      } else if (intoMinutes(index) < minutes) {
+      } else  {
         row[index] = "Y";
       }
     }
@@ -39,7 +39,7 @@ public class BerlinClock {
 
   private static String getFormattedMiddle(String[] row) {return format("[%s][%s][%s][%s][%s][%s][%s][%s][%s][%s][%s]", row);}
 
-  private static int intoMinutes(int index) {return 5 * index + 1;}
+  private static int intoMinutes(int index) {return 5 * (index + 1);}
 
   private static boolean replace1369thPositionsWithRed(int index) {
     return (index == 0) ||
