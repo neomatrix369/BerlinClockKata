@@ -15,12 +15,14 @@ The top two rows of lamps are red. These indicate the hours of a day. In the top
 Every lamp represents 5 hours. In the lower row of red lamps every lamp represents 1 hour.
 So if two lamps of the first row and three of the second row are switched on that indicates 5+5+3=13h or 1 pm.
 
+```
 L -------------------------------> R
   [R][R][R][R]
    5h 5h 5h 5h
   [R][R][R][R]
    1h 1h 1h 1h
 L -------------------------------> R
+```
 
 The two rows of lamps at the bottom count the minutes. The first of these rows has 11 lamps, the second 4.
 In the first row every lamp represents 5 minutes.
@@ -28,19 +30,21 @@ In this first row the 3rd, 6th and 9th lamp are red and indicate the first quart
 
 The other lamps are yellow. In the last row with 4 lamps every lamp represents 1 minute.
 
+```
 L -------------------------------> R
   [Y][Y][R][Y][Y][R][Y][Y][R][Y][Y]
    5m 5m 5m 5m 5m 5m 5m 5m 5m 5m 5m
   [Y][Y][Y][Y]
    1m 1m 1m 1m
 L -------------------------------> R
-
+```
 
 The lamps are switched on from left to right.
-
+```
 Y = Yellow
 R = Red
 O = Off
+```
 
 ```
 
