@@ -2,6 +2,7 @@ package berlinclock;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
+import static java.lang.Integer.valueOf;
 import static java.time.LocalTime.MIDNIGHT;
 import static java.time.temporal.ChronoUnit.HOURS;
 import static java.time.temporal.ChronoUnit.MINUTES;
@@ -26,202 +27,203 @@ public class BerlinClockConverterShould {
     return asList(
         new Object[][]{
             {
-                MIDNIGHT, "[O]      [O]      [O]      [O]\n" +
+                "00:00",
+                          "[O]      [O]      [O]      [O]\n" +
                           "[O]      [O]      [O]      [O]\n" +
                           "[O][O][O][O][O][O][O][O][O][O][O]\n" +
                           "[O]      [O]      [O]      [O]\n"
             },
             {
-                MIDNIGHT.plus(1, MINUTES),
+                "00:01",
                           "[O]      [O]      [O]      [O]\n" +
                           "[O]      [O]      [O]      [O]\n" +
                           "[O][O][O][O][O][O][O][O][O][O][O]\n" +
                           "[Y]      [O]      [O]      [O]\n"
             },
             {
-                MIDNIGHT.plus(4, MINUTES),
+                "00:04",
                          "[O]      [O]      [O]      [O]\n" +
                          "[O]      [O]      [O]      [O]\n" +
                          "[O][O][O][O][O][O][O][O][O][O][O]\n" +
                          "[Y]      [Y]      [Y]      [Y]\n"
             },
             {
-                MIDNIGHT.plus(5, MINUTES),
+                "00:05",
                         "[O]      [O]      [O]      [O]\n" +
                         "[O]      [O]      [O]      [O]\n" +
                         "[Y][O][O][O][O][O][O][O][O][O][O]\n" +
                         "[O]      [O]      [O]      [O]\n"
             },
             {
-                MIDNIGHT.plus(6, MINUTES),
+                "00:06",
                         "[O]      [O]      [O]      [O]\n" +
                         "[O]      [O]      [O]      [O]\n" +
                         "[Y][O][O][O][O][O][O][O][O][O][O]\n" +
                         "[Y]      [O]      [O]      [O]\n"
             },
             {
-                MIDNIGHT.plus(11, MINUTES),
+                "00:11",
                         "[O]      [O]      [O]      [O]\n" +
                         "[O]      [O]      [O]      [O]\n" +
                         "[Y][Y][O][O][O][O][O][O][O][O][O]\n" +
                         "[Y]      [O]      [O]      [O]\n"
             },
             {
-                MIDNIGHT.plus(15, MINUTES),
+                "00:15",
                         "[O]      [O]      [O]      [O]\n" +
                         "[O]      [O]      [O]      [O]\n" +
                         "[Y][Y][R][O][O][O][O][O][O][O][O]\n" +
                         "[O]      [O]      [O]      [O]\n"
             },
             {
-                MIDNIGHT.plus(22, MINUTES),
+                "00:22",
                         "[O]      [O]      [O]      [O]\n" +
                         "[O]      [O]      [O]      [O]\n" +
                         "[Y][Y][R][Y][O][O][O][O][O][O][O]\n" +
                         "[Y]      [Y]      [O]      [O]\n"
             },
             {
-                MIDNIGHT.plus(30, MINUTES),
+                "00:30",
                         "[O]      [O]      [O]      [O]\n" +
                         "[O]      [O]      [O]      [O]\n" +
                         "[Y][Y][R][Y][Y][R][O][O][O][O][O]\n" +
                         "[O]      [O]      [O]      [O]\n"
             },
             {
-                MIDNIGHT.plus(33, MINUTES),
+                "00:33",
                         "[O]      [O]      [O]      [O]\n" +
                         "[O]      [O]      [O]      [O]\n" +
                         "[Y][Y][R][Y][Y][R][O][O][O][O][O]\n" +
                         "[Y]      [Y]      [Y]      [O]\n"
             },
             {
-                MIDNIGHT.plus(40, MINUTES),
+                "00:40",
                         "[O]      [O]      [O]      [O]\n" +
                         "[O]      [O]      [O]      [O]\n" +
                         "[Y][Y][R][Y][Y][R][Y][Y][O][O][O]\n" +
                         "[O]      [O]      [O]      [O]\n"
             },
             {
-                MIDNIGHT.plus(45, MINUTES),
+                "00:45",
                         "[O]      [O]      [O]      [O]\n" +
                         "[O]      [O]      [O]      [O]\n" +
                         "[Y][Y][R][Y][Y][R][Y][Y][R][O][O]\n" +
                         "[O]      [O]      [O]      [O]\n"
             },
             {
-                MIDNIGHT.plus(47, MINUTES),
+                "00:47",
                         "[O]      [O]      [O]      [O]\n" +
                         "[O]      [O]      [O]      [O]\n" +
                         "[Y][Y][R][Y][Y][R][Y][Y][R][O][O]\n" +
                         "[Y]      [Y]      [O]      [O]\n"
             },
             {
-                MIDNIGHT.plus(55, MINUTES),
+                "00:55",
                         "[O]      [O]      [O]      [O]\n" +
                         "[O]      [O]      [O]      [O]\n" +
                         "[Y][Y][R][Y][Y][R][Y][Y][R][Y][Y]\n" +
                         "[O]      [O]      [O]      [O]\n"
             },
             {
-              MIDNIGHT.plus(59, MINUTES),
+                "00:59",
                         "[O]      [O]      [O]      [O]\n" +
                         "[O]      [O]      [O]      [O]\n" +
                         "[Y][Y][R][Y][Y][R][Y][Y][R][Y][Y]\n" +
                         "[Y]      [Y]      [Y]      [Y]\n"
             },
             {
-                MIDNIGHT.plus(1, HOURS).plus(10, MINUTES),
+                "01:10",
                     "[O]      [O]      [O]      [O]\n" +
                     "[R]      [O]      [O]      [O]\n" +
                     "[Y][Y][O][O][O][O][O][O][O][O][O]\n" +
                     "[O]      [O]      [O]      [O]\n"
             },
             {
-                MIDNIGHT.plus(2, HOURS).plus(30, MINUTES),
+                "02:30",
                     "[O]      [O]      [O]      [O]\n" +
                     "[R]      [R]      [O]      [O]\n" +
                     "[Y][Y][R][Y][Y][R][O][O][O][O][O]\n" +
                     "[O]      [O]      [O]      [O]\n"
             },
             {
-                MIDNIGHT.plus(3, HOURS),
+                "03:00",
                     "[O]      [O]      [O]      [O]\n" +
                     "[R]      [R]      [R]      [O]\n" +
                     "[O][O][O][O][O][O][O][O][O][O][O]\n" +
                     "[O]      [O]      [O]      [O]\n"
             },
             {
-                MIDNIGHT.plus(3, HOURS).plus(15, MINUTES),
+                "03:15",
                     "[O]      [O]      [O]      [O]\n" +
                     "[R]      [R]      [R]      [O]\n" +
                     "[Y][Y][R][O][O][O][O][O][O][O][O]\n" +
                     "[O]      [O]      [O]      [O]\n"
             },
             {
-                MIDNIGHT.plus(4, HOURS).plus(25, MINUTES),
+                "04:25",
                     "[O]      [O]      [O]      [O]\n" +
                     "[R]      [R]      [R]      [R]\n" +
                     "[Y][Y][R][Y][Y][O][O][O][O][O][O]\n" +
                     "[O]      [O]      [O]      [O]\n"
             },
             {
-                MIDNIGHT.plus(5, HOURS),
+                "05:00",
                     "[R]      [O]      [O]      [O]\n" +
                     "[O]      [O]      [O]      [O]\n" +
                     "[O][O][O][O][O][O][O][O][O][O][O]\n" +
                     "[O]      [O]      [O]      [O]\n"
             },
             {
-                MIDNIGHT.plus(6, HOURS),
+                "06:00",
                     "[R]      [O]      [O]      [O]\n" +
                     "[R]      [O]      [O]      [O]\n" +
                     "[O][O][O][O][O][O][O][O][O][O][O]\n" +
                     "[O]      [O]      [O]      [O]\n"
             },
             {
-                MIDNIGHT.plus(6, HOURS).plus(45, MINUTES),
+                "06:45",
                     "[R]      [O]      [O]      [O]\n" +
                     "[R]      [O]      [O]      [O]\n" +
                     "[Y][Y][R][Y][Y][R][Y][Y][R][O][O]\n" +
                     "[O]      [O]      [O]      [O]\n"
             },
             {
-                MIDNIGHT.plus(9, HOURS),
+                "09:00",
                     "[R]      [O]      [O]      [O]\n" +
                     "[R]      [R]      [R]      [R]\n" +
                     "[O][O][O][O][O][O][O][O][O][O][O]\n" +
                     "[O]      [O]      [O]      [O]\n"
             },
             {
-                MIDNIGHT.plus(9, HOURS).plus(34, MINUTES),
+                "09:34",
                     "[R]      [O]      [O]      [O]\n" +
                     "[R]      [R]      [R]      [R]\n" +
                     "[Y][Y][R][Y][Y][R][O][O][O][O][O]\n" +
                     "[Y]      [Y]      [Y]      [Y]\n"
             },
             {
-                MIDNIGHT.plus(11, HOURS).plus(59, MINUTES),
+                "11:59",
                     "[R]      [R]      [O]      [O]\n" +
                     "[R]      [O]      [O]      [O]\n" +
                     "[Y][Y][R][Y][Y][R][Y][Y][R][Y][Y]\n" +
                     "[Y]      [Y]      [Y]      [Y]\n"
             },
             {
-                MIDNIGHT.plus(12, HOURS),
+                "12:00",
                     "[R]      [R]      [O]      [O]\n" +
                     "[R]      [R]      [O]      [O]\n" +
                     "[O][O][O][O][O][O][O][O][O][O][O]\n" +
                     "[O]      [O]      [O]      [O]\n"
             },
             {
-                MIDNIGHT.plus(12, HOURS).plus(30, MINUTES),
+                "12:30",
                     "[R]      [R]      [O]      [O]\n" +
                     "[R]      [R]      [O]      [O]\n" +
                     "[Y][Y][R][Y][Y][R][O][O][O][O][O]\n" +
                     "[O]      [O]      [O]      [O]\n"
             },
             {
-                MIDNIGHT.plus(15, HOURS).plus(30, MINUTES),
+                "15:30",
                     "[R]      [R]      [R]      [O]\n" +
                     "[O]      [O]      [O]      [O]\n" +
                     "[Y][Y][R][Y][Y][R][O][O][O][O][O]\n" +
@@ -232,13 +234,20 @@ public class BerlinClockConverterShould {
     );
   }
 
-  public BerlinClockConverterShould(LocalTime givenTime, String displayClock) {
-    this.givenTime = givenTime;
+  public BerlinClockConverterShould(String givenTime, String displayClock) {
+    this.givenTime = convertStringToLocalTime(givenTime);
     this.displayClock = displayClock;
   }
 
   @Test public void
   show_an_equivalent_clock_display_for_the_given_time() {
     assertThat(displayTimeFor(givenTime), is(displayClock));
+  }
+
+  private LocalTime convertStringToLocalTime(String timeAsString) {
+    String[] splitTime = timeAsString.split(":");
+    int hours = valueOf(splitTime[0]);
+    int minutes = valueOf(splitTime[1]);
+    return MIDNIGHT.plus(hours, HOURS).plus(minutes, MINUTES);
   }
 }
