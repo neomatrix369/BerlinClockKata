@@ -23,51 +23,35 @@ public class BerlinClockConverter {
   private static final String BOTTOM_ROW_FORMATTER =
       "[%s]      [%s]      [%s]      [%s]";
 
+  private static final int THIRD_POSITION = 2;
+  private static final int SIXTH_POSITION = 5;
+  private static final int NINTH_POSITION = 8;
+
   public static String displayTimeFor(LocalTime time) {
     int hours = time.getHour();
     int minutes = time.getMinute();
 
-    final String topRow = getTopRow(hours);
-    final String firstMiddleRow = getFirstMiddleRowLights(hours);
-    final String secondMiddleRow = secondMiddleRowLights(minutes);
-    final String bottomRow = bottomRowLights(minutes);
-
     return format(FOUR_ROWS_OF_THE_CLOCK,
-        topRow,
-        firstMiddleRow,
-        secondMiddleRow,
-        bottomRow
+        getTopRow(hours),
+        getFirstMiddleRowLights(hours),
+        secondMiddleRowLights(minutes),
+        bottomRowLights(minutes)
     );
   }
 
   private static String getTopRow(int hours) {
-    int count = hours / FIVE_HOURS;
-
-    String[] row = new String[] {LIGHT_OFF, LIGHT_OFF, LIGHT_OFF, LIGHT_OFF};
-    for (int index=0; index<count && index<row.length; index++) {
-      row[index] = RED_LIGHT;
-    }
-
-    return format(TOP_ROW_FORMATTER, row);
+    return getTheRowWithFourLamps(hours / FIVE_HOURS, RED_LIGHT, TOP_ROW_FORMATTER);
   }
 
   private static String getFirstMiddleRowLights(int hours) {
-    int count = hours % FIVE_HOURS;
-
-    String row[] = new String[] {LIGHT_OFF, LIGHT_OFF, LIGHT_OFF, LIGHT_OFF};
-    for (int index=0; index<row.length; index++) {
-      if (index < count) {
-        row[index] = RED_LIGHT;
-      }
-    }
-
-    return format(FIRST_MIDDLE_ROW_FORMATTER, row);
+    return getTheRowWithFourLamps(hours % FIVE_HOURS, RED_LIGHT, FIRST_MIDDLE_ROW_FORMATTER);
   }
 
   private static String secondMiddleRowLights(int minutes) {
     final String[] row =
         new String[] {LIGHT_OFF, LIGHT_OFF, LIGHT_OFF, LIGHT_OFF, LIGHT_OFF, LIGHT_OFF,
         LIGHT_OFF, LIGHT_OFF, LIGHT_OFF, LIGHT_OFF, LIGHT_OFF};
+
     if (minutes < FIVE_MINUTES) return format(SECOND_MIDDLE_ROW_FORMATTER, row);
 
     switchBlocksInTheMiddleRowOnOrOff(row, minutes);
@@ -87,20 +71,24 @@ public class BerlinClockConverter {
   }
 
   private static boolean replace1369thPositionsWithRed(int index) {
-    return  (index == 2) ||
-            (index == 5) ||
-            (index == 8);
+    return  (index == THIRD_POSITION) ||
+            (index == SIXTH_POSITION) ||
+            (index == NINTH_POSITION);
   }
 
   private static String bottomRowLights(int minutes) {
-    int count = minutes % FIVE_MINUTES;
+    return getTheRowWithFourLamps(minutes % FIVE_MINUTES, YELLOW_LIGHT, BOTTOM_ROW_FORMATTER);
+  }
 
-    final String[] row = {LIGHT_OFF, LIGHT_OFF, LIGHT_OFF, LIGHT_OFF};
+  private static String getTheRowWithFourLamps(int count, String lampColour, String rowFormatter) {
+    String row[] = new String[] {LIGHT_OFF, LIGHT_OFF, LIGHT_OFF, LIGHT_OFF};
+
     for (int index=0; index<row.length; index++) {
       if (index < count) {
-        row[index] = YELLOW_LIGHT;
+        row[index] = lampColour;
       }
     }
-    return format(BOTTOM_ROW_FORMATTER, row);
+
+    return format(rowFormatter, row);
   }
 }
