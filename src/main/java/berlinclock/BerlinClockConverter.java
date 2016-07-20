@@ -63,9 +63,9 @@ public class BerlinClockConverter {
     int count = minutes / FIVE_MINUTES;
 
     for (int index = 0; index<count && index < row.length; index++) {
-      row[index] = YELLOW_LIGHT;
+      toggleLamp(row, index, YELLOW_LIGHT);
       if (replace1369thPositionsWithRed(index)) {
-        row[index] = RED_LIGHT;
+        toggleLamp(row, index, RED_LIGHT);
       }
     }
   }
@@ -81,14 +81,20 @@ public class BerlinClockConverter {
   }
 
   private static String getTheRowWithFourLamps(int count, String lampColour, String rowFormatter) {
-    String row[] = new String[] {LIGHT_OFF, LIGHT_OFF, LIGHT_OFF, LIGHT_OFF};
+    String[] row = new String[] {LIGHT_OFF, LIGHT_OFF, LIGHT_OFF, LIGHT_OFF};
 
     for (int index=0; index<row.length; index++) {
-      if (index < count) {
-        row[index] = lampColour;
-      }
+      toggleLamp(row, index, count, lampColour);
     }
 
     return format(rowFormatter, row);
+  }
+
+  private static void toggleLamp(String[] row, int index, String lampColour) {row[index] = lampColour;}
+
+  private static void toggleLamp(String[] row, int index, int count, String lampColour) {
+    if (index < count) {
+      row[index] = lampColour;
+    }
   }
 }
