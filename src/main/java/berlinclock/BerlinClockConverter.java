@@ -12,6 +12,8 @@ public class BerlinClockConverter {
   private static final String YELLOW_LIGHT = "Y";
   private static final String LIGHT_OFF = "O";
 
+  private static final String FOUR_ROWS_OF_THE_CLOCK = "%s\n%s\n%s\n%s\n";
+
   private static final String TOP_ROW_FORMATTER =
       "[%s]      [%s]      [%s]      [%s]";
   private static final String FIRST_MIDDLE_ROW_FORMATTER =
@@ -30,7 +32,7 @@ public class BerlinClockConverter {
     final String secondMiddleRow = secondMiddleRowLights(minutes);
     final String bottomRow = bottomRowLights(minutes % FIVE_MINUTES);
 
-    return format("%s\n%s\n%s\n%s\n",
+    return format(FOUR_ROWS_OF_THE_CLOCK,
         topRow,
         firstMiddleRow,
         secondMiddleRow,
