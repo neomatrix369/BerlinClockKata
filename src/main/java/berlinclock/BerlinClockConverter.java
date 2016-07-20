@@ -4,7 +4,7 @@ import static java.lang.String.format;
 
 import java.time.LocalTime;
 
-public class BerlinClock {
+public class BerlinClockConverter {
   public static final int FIVE_HOURS = 5;
   private static final int FIVE_MINUTES = FIVE_HOURS;
 

@@ -7,7 +7,7 @@ import static java.time.LocalTime.MIDNIGHT;
 import static java.time.temporal.ChronoUnit.HOURS;
 import static java.time.temporal.ChronoUnit.MINUTES;
 import static java.util.Arrays.asList;
-import static berlinclock.BerlinClock.displayTimeFor;
+import static berlinclock.BerlinClockConverter.displayTimeFor;
 
 import java.time.LocalTime;
 import java.util.Collection;
