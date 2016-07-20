@@ -13,7 +13,7 @@ public abstract class ClockRows {
   private static final int MAX_LAMPS_PER_ROW = 4;
 
   protected String populateARowWithLamps(int count, LampState lampState, String rowFormatter) {
-    List<LampState> lamps = new ArrayList<>();
+    final List<LampState> lamps = new ArrayList<>();
 
     int index = 0;
     while (index < MAX_LAMPS_PER_ROW) {
