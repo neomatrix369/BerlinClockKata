@@ -18,35 +18,43 @@ public class ClockSecondMiddleRow extends ClockRows {
   private static final int MAX_LAMPS_PER_ROW = 11;
 
   private final int minutes;
+  private final int count;
 
   public ClockSecondMiddleRow(int minutes) {
     this.minutes = minutes;
+    count = minutes / FIVE_MINUTES;
   }
 
   public String get() {
     final List<LampState> row = new ArrayList<>();
 
     if (minutes < FIVE_MINUTES) {
-      int index = 0;
-      while (index < MAX_LAMPS_PER_ROW) {
-        row.add(LAMP_OFF);
-        index++;
-      }
+      switchAllLampsOff(row);
     } else {
-      int count = minutes / FIVE_MINUTES;
-
-      int index = 0;
-      while (index < MAX_LAMPS_PER_ROW) {
-        row.add(index < count
-            ? replace1369thPositionsWithRed(index)
-                  ? RED_LAMP
-                  : YELLOW_LAMP
-            : LAMP_OFF);
-        index++;
-      }
+      toggleLampsOnOrOff(row);
     }
 
     return String.format(SECOND_MIDDLE_ROW_FORMATTER, row.toArray());
+  }
+
+  private void switchAllLampsOff(List<LampState> row) {
+    int index = 0;
+    while (index < MAX_LAMPS_PER_ROW) {
+      row.add(LAMP_OFF);
+      index++;
+    }
+  }
+
+  private void toggleLampsOnOrOff(List<LampState> row) {
+    int index = 0;
+    while (index < MAX_LAMPS_PER_ROW) {
+      row.add(index < count
+          ? replace1369thPositionsWithRed(index)
+                ? RED_LAMP
+                : YELLOW_LAMP
+          : LAMP_OFF);
+      index++;
+    }
   }
 
   private boolean replace1369thPositionsWithRed(int index) {

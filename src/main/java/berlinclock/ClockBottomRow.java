@@ -7,12 +7,14 @@ public class ClockBottomRow extends ClockRows {
       "[%s]      [%s]      [%s]      [%s]";
 
   private final int minutes;
+  private final int count;
 
   public ClockBottomRow(int minutes) {
     this.minutes = minutes;
+    count = minutes % FIVE_MINUTES;
   }
 
   public String get() {
-    return populateARowWithLamps(minutes % FIVE_MINUTES, YELLOW_LAMP, BOTTOM_ROW_FORMATTER);
+    return populateARowWithLamps(count, YELLOW_LAMP, BOTTOM_ROW_FORMATTER);
   }
 }

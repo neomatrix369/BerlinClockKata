@@ -6,13 +6,13 @@ public class ClockTopRow extends ClockRows {
   private static final String TOP_ROW_FORMATTER =
       "[%s]      [%s]      [%s]      [%s]";
 
-  private int hours;
+  private int count;
 
   public ClockTopRow(int hours) {
-    this.hours = hours;
+    count = hours / FIVE_HOURS;
   }
 
   public String get() {
-    return populateARowWithLamps(hours / FIVE_HOURS, RED_LAMP, TOP_ROW_FORMATTER);
+    return populateARowWithLamps(count, RED_LAMP, TOP_ROW_FORMATTER);
   }
 }

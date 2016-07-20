@@ -6,11 +6,13 @@ public class ClockFirstMiddleRow extends ClockRows {
   private static final String FIRST_MIDDLE_ROW_FORMATTER =
       "[%s]      [%s]      [%s]      [%s]";
 
-  private int hours;
+  private final int count;
 
-  public ClockFirstMiddleRow(int hours) {this.hours = hours;}
+  public ClockFirstMiddleRow(int hours) {
+    count = hours % FIVE_HOURS;
+  }
 
   public String get() {
-    return populateARowWithLamps(hours % FIVE_HOURS, RED_LAMP, FIRST_MIDDLE_ROW_FORMATTER);
+    return populateARowWithLamps(count, RED_LAMP, FIRST_MIDDLE_ROW_FORMATTER);
   }
 }
