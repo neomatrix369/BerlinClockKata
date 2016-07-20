@@ -1,21 +1,18 @@
 package berlinclock;
 
 import static java.lang.String.format;
+import static berlinclock.LampState.LAMP_OFF;
 
 public abstract class ClockRows {
   protected static final int FIVE_HOURS = 5;
   protected static final int FIVE_MINUTES = 5;
 
-  protected static final String LAMP_OFF = "O";
-  protected static final String RED_LAMP = "R";
-  protected static final String YELLOW_LAMP = "Y";
-
-  protected String populateARowWithLamps(int count, String lampColour, String rowFormatter) {
-    String[] row = new String[] {LAMP_OFF, LAMP_OFF, LAMP_OFF, LAMP_OFF};
+  protected String populateARowWithLamps(int count, LampState lampState, String rowFormatter) {
+    LampState[] row = new LampState[] {LAMP_OFF, LAMP_OFF, LAMP_OFF, LAMP_OFF};
 
     for (int index=0; index<row.length; index++) {
       if (index < count) {
-        row[index] = lampColour;
+        row[index] = lampState;
       }
     }
 

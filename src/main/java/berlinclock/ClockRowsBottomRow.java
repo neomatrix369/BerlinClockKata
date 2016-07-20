@@ -1,5 +1,7 @@
 package berlinclock;
 
+import static berlinclock.LampState.YELLOW_LAMP;
+
 public class ClockRowsBottomRow extends ClockRows {
   public static final String BOTTOM_ROW_FORMATTER =
       "[%s]      [%s]      [%s]      [%s]";

@@ -1,5 +1,9 @@
 package berlinclock;
 
+import static berlinclock.LampState.LAMP_OFF;
+import static berlinclock.LampState.RED_LAMP;
+import static berlinclock.LampState.YELLOW_LAMP;
+
 public class ClockRowsSecondMiddleRow extends ClockRows {
   private static final String SECOND_MIDDLE_ROW_FORMATTER =
       "[%s][%s][%s][%s][%s][%s][%s][%s][%s][%s][%s]";
@@ -15,8 +19,8 @@ public class ClockRowsSecondMiddleRow extends ClockRows {
   }
 
   public String get() {
-    final String[] row =
-        new String[] {LAMP_OFF, LAMP_OFF, LAMP_OFF, LAMP_OFF, LAMP_OFF, LAMP_OFF,
+    final LampState[] row =
+        new LampState[] {LAMP_OFF, LAMP_OFF, LAMP_OFF, LAMP_OFF, LAMP_OFF, LAMP_OFF,
             LAMP_OFF, LAMP_OFF, LAMP_OFF, LAMP_OFF, LAMP_OFF};
 
     if (minutes < FIVE_MINUTES)
@@ -27,7 +31,7 @@ public class ClockRowsSecondMiddleRow extends ClockRows {
     return String.format(SECOND_MIDDLE_ROW_FORMATTER, row);
   }
 
-  private void switchBlocksInTheMiddleRowOnOrOff(String[] row, int minutes) {
+  private void switchBlocksInTheMiddleRowOnOrOff(LampState[] row, int minutes) {
     int count = minutes / FIVE_MINUTES;
 
     for (int index = 0; index < count && index < row.length; index++) {
