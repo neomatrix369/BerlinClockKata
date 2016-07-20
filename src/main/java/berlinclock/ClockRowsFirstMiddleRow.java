@@ -9,6 +9,6 @@ public class ClockRowsFirstMiddleRow extends ClockRows {
   public ClockRowsFirstMiddleRow(int hours) {this.hours = hours;}
 
   public String get() {
-    return populateARowWithLamps(hours % FIVE_HOURS, RED_LIGHT, FIRST_MIDDLE_ROW_FORMATTER);
+    return populateARowWithLamps(hours % FIVE_HOURS, RED_LAMP, FIRST_MIDDLE_ROW_FORMATTER);
   }
 }

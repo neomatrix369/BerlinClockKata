@@ -11,6 +11,6 @@ public class ClockRowsBottomRow extends ClockRows {
   }
 
   public String get() {
-    return populateARowWithLamps(minutes % FIVE_MINUTES, YELLOW_LIGHT, BOTTOM_ROW_FORMATTER);
+    return populateARowWithLamps(minutes % FIVE_MINUTES, YELLOW_LAMP, BOTTOM_ROW_FORMATTER);
   }
 }

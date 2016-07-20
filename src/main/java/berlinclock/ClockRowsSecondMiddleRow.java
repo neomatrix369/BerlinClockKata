@@ -16,8 +16,8 @@ public class ClockRowsSecondMiddleRow extends ClockRows {
 
   public String get() {
     final String[] row =
-        new String[] {LIGHT_OFF, LIGHT_OFF, LIGHT_OFF, LIGHT_OFF, LIGHT_OFF, LIGHT_OFF,
-            LIGHT_OFF, LIGHT_OFF, LIGHT_OFF, LIGHT_OFF, LIGHT_OFF};
+        new String[] {LAMP_OFF, LAMP_OFF, LAMP_OFF, LAMP_OFF, LAMP_OFF, LAMP_OFF,
+            LAMP_OFF, LAMP_OFF, LAMP_OFF, LAMP_OFF, LAMP_OFF};
 
     if (minutes < FIVE_MINUTES)
       return String.format(SECOND_MIDDLE_ROW_FORMATTER, row);
@@ -31,9 +31,9 @@ public class ClockRowsSecondMiddleRow extends ClockRows {
     int count = minutes / FIVE_MINUTES;
 
     for (int index = 0; index < count && index < row.length; index++) {
-      row[index] = YELLOW_LIGHT;
+      row[index] = YELLOW_LAMP;
       if (replace1369thPositionsWithRed(index)) {
-        row[index] = RED_LIGHT;
+        row[index] = RED_LAMP;
       }
     }
   }
