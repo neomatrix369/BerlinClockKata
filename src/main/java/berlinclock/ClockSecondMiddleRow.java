@@ -30,7 +30,7 @@ public class ClockSecondMiddleRow extends ClockRows {
     final List<LampState> rowOfLamps = new ArrayList<>();
 
     if (minutes < FIVE_MINUTES) {
-      switchAllLampsOff(rowOfLamps);
+      toggleAllLampsOff(rowOfLamps);
     } else {
       toggleLampsOnOrOff(rowOfLamps);
     }
@@ -38,7 +38,7 @@ public class ClockSecondMiddleRow extends ClockRows {
     return String.format(SECOND_MIDDLE_ROW_FORMATTER, rowOfLamps.toArray());
   }
 
-  private void switchAllLampsOff(List<LampState> rowOfLamps) {
+  private void toggleAllLampsOff(List<LampState> rowOfLamps) {
     int index = 0;
     while (index < MAX_LAMPS_PER_ROW) {
       rowOfLamps.add(LAMP_OFF);
@@ -49,17 +49,20 @@ public class ClockSecondMiddleRow extends ClockRows {
   private void toggleLampsOnOrOff(List<LampState> rowOfLamps) {
     int index = 0;
     while (index < MAX_LAMPS_PER_ROW) {
-      rowOfLamps.add(index < numberOfLampsToSwitchOn
+      rowOfLamps.add(
+          index < numberOfLampsToSwitchOn
           ? replace1369thPositionsWithRed(index)
                 ? RED_LAMP
                 : YELLOW_LAMP
-          : LAMP_OFF);
+          : LAMP_OFF
+      );
       index++;
     }
   }
 
   private boolean replace1369thPositionsWithRed(int index) {
-    return (index == THIRD_POSITION) ||
+    return
+        (index == THIRD_POSITION) ||
         (index == SIXTH_POSITION) ||
         (index == NINTH_POSITION);
   }
