@@ -28,9 +28,9 @@ public class BerlinClockConverter {
     int minutes = time.getMinute();
 
     final String topRow = getTopRow(hours);
-    final String firstMiddleRow = getFirstMiddleRowLights(hours % FIVE_HOURS);
+    final String firstMiddleRow = getFirstMiddleRowLights(hours);
     final String secondMiddleRow = secondMiddleRowLights(minutes);
-    final String bottomRow = bottomRowLights(minutes % FIVE_MINUTES);
+    final String bottomRow = bottomRowLights(minutes);
 
     return format(FOUR_ROWS_OF_THE_CLOCK,
         topRow,
@@ -52,10 +52,11 @@ public class BerlinClockConverter {
   }
 
   private static String getFirstMiddleRowLights(int hours) {
+    int count = hours % FIVE_HOURS;
     String firstMiddleRow[] = new String[] {LIGHT_OFF, LIGHT_OFF, LIGHT_OFF, LIGHT_OFF};
 
     for (int index=0; index<firstMiddleRow.length; index++) {
-      if (index < hours) {
+      if (index < count) {
         firstMiddleRow[index] = RED_LIGHT;
       }
     }
@@ -92,9 +93,11 @@ public class BerlinClockConverter {
   }
 
   private static String bottomRowLights(int minutes) {
+    int count = minutes % FIVE_MINUTES;
+
     final String[] row = {LIGHT_OFF, LIGHT_OFF, LIGHT_OFF, LIGHT_OFF};
     for (int index=0; index<row.length; index++) {
-      if (index < minutes) {
+      if (index < count) {
         row[index] = YELLOW_LIGHT;
       }
     }
