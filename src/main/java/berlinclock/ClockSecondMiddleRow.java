@@ -60,8 +60,4 @@ public class ClockSecondMiddleRow extends ClockRows {
         (index == SIXTH_POSITION) ||
         (index == NINTH_POSITION);
   }
-
-  interface EvaluateLamp {
-    LampState apply(int index);
-  }
 }

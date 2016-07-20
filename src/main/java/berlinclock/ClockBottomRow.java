@@ -7,7 +7,7 @@ import java.time.LocalTime;
 public class ClockBottomRow extends ClockRows {
   public static final String BOTTOM_ROW_FORMATTER =
       "[%s]      [%s]      [%s]      [%s]";
-  
+
   private final int numberOfLampsToSwitchOn;
 
   public ClockBottomRow(LocalTime time) {
@@ -15,6 +15,11 @@ public class ClockBottomRow extends ClockRows {
   }
 
   public String get() {
-    return new Lamps(numberOfLampsToSwitchOn, MAX_LAMPS_PER_ROW, YELLOW_LAMP, BOTTOM_ROW_FORMATTER).getRow();
+    return new Lamps(
+        numberOfLampsToSwitchOn,
+        MAXIMUM_LAMPS_PER_ROW,
+        (index) -> YELLOW_LAMP,
+        BOTTOM_ROW_FORMATTER
+    ).getRow();
   }
 }

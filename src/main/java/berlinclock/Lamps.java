@@ -8,13 +8,16 @@ import java.util.List;
 
 public class Lamps {
   private final int numberOfLampsToSwitchOn;
-  private final LampState lampState;
+  private final EvaluateLamp evaluateLamp;
   private final String rowFormatter;
   private int maximumLampsPerRow;
 
-  public Lamps(int numberOfLampsToSwitchOn, int maximumLampsPerRow, LampState lampState, String rowFormatter) {
+  public Lamps(int numberOfLampsToSwitchOn,
+      int maximumLampsPerRow,
+      EvaluateLamp evaluateLamp,
+      String rowFormatter) {
     this.numberOfLampsToSwitchOn = numberOfLampsToSwitchOn;
-    this.lampState = lampState;
+    this.evaluateLamp = evaluateLamp;
     this.rowFormatter = rowFormatter;
     this.maximumLampsPerRow = maximumLampsPerRow;
   }
@@ -26,7 +29,7 @@ public class Lamps {
     while (index < maximumLampsPerRow) {
       lamps.add(
           index < numberOfLampsToSwitchOn
-          ? lampState
+          ? evaluateLamp.apply(index)
           : LAMP_OFF
       );
       index++;
