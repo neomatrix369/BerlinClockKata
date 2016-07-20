@@ -232,7 +232,7 @@ List of times to convert from 24 hours to Berlin clock:
 21:17
   [R]      [R]      [R]      [R]
   [R]      [O]      [O]      [O]
-  [R][Y][Y][O][O][O][O][O][O][O][O]
+  [Y][Y][R][O][O][O][O][O][O][O][O]
   [Y]      [Y]      [O]      [O]
 ```
 ```
