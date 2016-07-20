@@ -4,6 +4,7 @@ import static berlinclock.LampState.LAMP_OFF;
 import static berlinclock.LampState.RED_LAMP;
 import static berlinclock.LampState.YELLOW_LAMP;
 
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,8 +21,8 @@ public class ClockSecondMiddleRow extends ClockRows {
   private final int minutes;
   private final int numberOfLampsToSwitchOn;
 
-  public ClockSecondMiddleRow(int minutes) {
-    this.minutes = minutes;
+  public ClockSecondMiddleRow(LocalTime time) {
+    minutes = time.getMinute();
     numberOfLampsToSwitchOn = minutes / FIVE_MINUTES;
   }
 
