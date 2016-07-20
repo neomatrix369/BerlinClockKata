@@ -13,10 +13,10 @@ public class BerlinClockConverter {
     int minutes = time.getMinute();
 
     return format(FOUR_ROWS_OF_THE_CLOCK,
-        new ClockRowsTopRow(hours).get(),
-        new ClockRowsFirstMiddleRow(hours).get(),
-        new ClockRowsSecondMiddleRow(minutes).get(),
-        new ClockRowsBottomRow(minutes).get()
+        new ClockTopRow(hours).get(),
+        new ClockFirstMiddleRow(hours).get(),
+        new ClockSecondMiddleRow(minutes).get(),
+        new ClockBottomRow(minutes).get()
     );
   }
 }

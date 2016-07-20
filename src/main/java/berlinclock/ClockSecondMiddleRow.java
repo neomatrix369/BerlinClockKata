@@ -7,7 +7,7 @@ import static berlinclock.LampState.YELLOW_LAMP;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ClockRowsSecondMiddleRow extends ClockRows {
+public class ClockSecondMiddleRow extends ClockRows {
   private static final String SECOND_MIDDLE_ROW_FORMATTER =
       "[%s][%s][%s][%s][%s][%s][%s][%s][%s][%s][%s]";
 
@@ -19,7 +19,7 @@ public class ClockRowsSecondMiddleRow extends ClockRows {
 
   private final int minutes;
 
-  public ClockRowsSecondMiddleRow(int minutes) {
+  public ClockSecondMiddleRow(int minutes) {
     this.minutes = minutes;
   }
 

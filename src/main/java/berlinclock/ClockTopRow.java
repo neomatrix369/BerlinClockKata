@@ -2,13 +2,13 @@ package berlinclock;
 
 import static berlinclock.LampState.RED_LAMP;
 
-public class ClockRowsTopRow extends ClockRows {
+public class ClockTopRow extends ClockRows {
   private static final String TOP_ROW_FORMATTER =
       "[%s]      [%s]      [%s]      [%s]";
 
   private int hours;
 
-  public ClockRowsTopRow(int hours) {
+  public ClockTopRow(int hours) {
     this.hours = hours;
   }
 

@@ -2,13 +2,13 @@ package berlinclock;
 
 import static berlinclock.LampState.YELLOW_LAMP;
 
-public class ClockRowsBottomRow extends ClockRows {
+public class ClockBottomRow extends ClockRows {
   public static final String BOTTOM_ROW_FORMATTER =
       "[%s]      [%s]      [%s]      [%s]";
 
   private final int minutes;
 
-  public ClockRowsBottomRow(int minutes) {
+  public ClockBottomRow(int minutes) {
     this.minutes = minutes;
   }
 
