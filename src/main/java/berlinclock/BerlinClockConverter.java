@@ -36,46 +36,48 @@ public class BerlinClockConverter {
         topRow,
         firstMiddleRow,
         secondMiddleRow,
-        bottomRow);
+        bottomRow
+    );
   }
 
   private static String getTopRow(int hours) {
-    String[] topRow = new String[] {LIGHT_OFF, LIGHT_OFF, LIGHT_OFF, LIGHT_OFF};
-
     int count = hours / FIVE_HOURS;
 
-    for (int index=0; index<count && index<topRow.length; index++) {
-      topRow[index] = RED_LIGHT;
+    String[] row = new String[] {LIGHT_OFF, LIGHT_OFF, LIGHT_OFF, LIGHT_OFF};
+    for (int index=0; index<count && index<row.length; index++) {
+      row[index] = RED_LIGHT;
     }
 
-    return format(TOP_ROW_FORMATTER, topRow);
+    return format(TOP_ROW_FORMATTER, row);
   }
 
   private static String getFirstMiddleRowLights(int hours) {
     int count = hours % FIVE_HOURS;
-    String firstMiddleRow[] = new String[] {LIGHT_OFF, LIGHT_OFF, LIGHT_OFF, LIGHT_OFF};
 
-    for (int index=0; index<firstMiddleRow.length; index++) {
+    String row[] = new String[] {LIGHT_OFF, LIGHT_OFF, LIGHT_OFF, LIGHT_OFF};
+    for (int index=0; index<row.length; index++) {
       if (index < count) {
-        firstMiddleRow[index] = RED_LIGHT;
+        row[index] = RED_LIGHT;
       }
     }
 
-    return format(FIRST_MIDDLE_ROW_FORMATTER, firstMiddleRow);
+    return format(FIRST_MIDDLE_ROW_FORMATTER, row);
   }
 
   private static String secondMiddleRowLights(int minutes) {
-    final String[] secondMiddleRow = new String[] {LIGHT_OFF, LIGHT_OFF, LIGHT_OFF, LIGHT_OFF, LIGHT_OFF, LIGHT_OFF,
+    final String[] row =
+        new String[] {LIGHT_OFF, LIGHT_OFF, LIGHT_OFF, LIGHT_OFF, LIGHT_OFF, LIGHT_OFF,
         LIGHT_OFF, LIGHT_OFF, LIGHT_OFF, LIGHT_OFF, LIGHT_OFF};
-    if (minutes < FIVE_MINUTES) return getFormattedMiddle(secondMiddleRow);
+    if (minutes < FIVE_MINUTES) return format(SECOND_MIDDLE_ROW_FORMATTER, row);
 
-    switchBlocksInTheMiddleRowOnOrOff(secondMiddleRow, minutes);
+    switchBlocksInTheMiddleRowOnOrOff(row, minutes);
 
-    return getFormattedMiddle(secondMiddleRow);
+    return format(SECOND_MIDDLE_ROW_FORMATTER, row);
   }
 
   private static void switchBlocksInTheMiddleRowOnOrOff(String[] row, int minutes) {
     int count = minutes / FIVE_MINUTES;
+
     for (int index = 0; index<count && index < row.length; index++) {
       row[index] = YELLOW_LIGHT;
       if (replace1369thPositionsWithRed(index)) {
@@ -83,8 +85,6 @@ public class BerlinClockConverter {
       }
     }
   }
-
-  private static String getFormattedMiddle(String[] row) {return format(SECOND_MIDDLE_ROW_FORMATTER, row);}
 
   private static boolean replace1369thPositionsWithRed(int index) {
     return  (index == 2) ||
