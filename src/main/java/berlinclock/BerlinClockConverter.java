@@ -5,8 +5,8 @@ import static java.lang.String.format;
 import java.time.LocalTime;
 
 public class BerlinClockConverter {
-  public static final int FIVE_HOURS = 5;
-  private static final int FIVE_MINUTES = FIVE_HOURS;
+  private static final int FIVE_HOURS = 5;
+  private static final int FIVE_MINUTES = 5;
 
   private static final String RED_LIGHT = "R";
   private static final String YELLOW_LIGHT = "Y";
