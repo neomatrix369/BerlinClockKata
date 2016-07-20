@@ -1,5 +1,5 @@
-Berlin Clock
-============
+Berlin Clock Kata
+=================
 
 Create a representation of the Berlin Clock for a given time (hh::mm:ss).
 
