@@ -50,14 +50,18 @@ public class ClockSecondMiddleRow extends ClockRows {
     int index = 0;
     while (index < MAX_LAMPS_PER_ROW) {
       rowOfLamps.add(
-          index < numberOfLampsToSwitchOn
-          ? replace1369thPositionsWithRed(index)
-                ? RED_LAMP
-                : YELLOW_LAMP
-          : LAMP_OFF
+          evaluateLamp(index)
       );
       index++;
     }
+  }
+
+  private LampState evaluateLamp(int index) {
+    return index < numberOfLampsToSwitchOn
+      ? replace1369thPositionsWithRed(index)
+          ? RED_LAMP
+          : YELLOW_LAMP
+      : LAMP_OFF;
   }
 
   private boolean replace1369thPositionsWithRed(int index) {
