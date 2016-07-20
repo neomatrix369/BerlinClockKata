@@ -12,12 +12,12 @@ public abstract class ClockRows {
 
   private static final int MAX_LAMPS_PER_ROW = 4;
 
-  protected String populateARowWithLamps(int count, LampState lampState, String rowFormatter) {
+  protected String populateARowWithLamps(int numberOfLampsToSwitchOn, LampState lampState, String rowFormatter) {
     final List<LampState> lamps = new ArrayList<>();
 
     int index = 0;
     while (index < MAX_LAMPS_PER_ROW) {
-      lamps.add(index < count ? lampState : LAMP_OFF);
+      lamps.add(index < numberOfLampsToSwitchOn ? lampState : LAMP_OFF);
       index++;
     }
 

@@ -18,37 +18,37 @@ public class ClockSecondMiddleRow extends ClockRows {
   private static final int MAX_LAMPS_PER_ROW = 11;
 
   private final int minutes;
-  private final int count;
+  private final int numberOfLampsToSwitchOn;
 
   public ClockSecondMiddleRow(int minutes) {
     this.minutes = minutes;
-    count = minutes / FIVE_MINUTES;
+    numberOfLampsToSwitchOn = minutes / FIVE_MINUTES;
   }
 
   public String get() {
-    final List<LampState> row = new ArrayList<>();
+    final List<LampState> rowOfLamps = new ArrayList<>();
 
     if (minutes < FIVE_MINUTES) {
-      switchAllLampsOff(row);
+      switchAllLampsOff(rowOfLamps);
     } else {
-      toggleLampsOnOrOff(row);
+      toggleLampsOnOrOff(rowOfLamps);
     }
 
-    return String.format(SECOND_MIDDLE_ROW_FORMATTER, row.toArray());
+    return String.format(SECOND_MIDDLE_ROW_FORMATTER, rowOfLamps.toArray());
   }
 
-  private void switchAllLampsOff(List<LampState> row) {
+  private void switchAllLampsOff(List<LampState> rowOfLamps) {
     int index = 0;
     while (index < MAX_LAMPS_PER_ROW) {
-      row.add(LAMP_OFF);
+      rowOfLamps.add(LAMP_OFF);
       index++;
     }
   }
 
-  private void toggleLampsOnOrOff(List<LampState> row) {
+  private void toggleLampsOnOrOff(List<LampState> rowOfLamps) {
     int index = 0;
     while (index < MAX_LAMPS_PER_ROW) {
-      row.add(index < count
+      rowOfLamps.add(index < numberOfLampsToSwitchOn
           ? replace1369thPositionsWithRed(index)
                 ? RED_LAMP
                 : YELLOW_LAMP
