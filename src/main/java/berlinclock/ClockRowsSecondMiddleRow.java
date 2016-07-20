@@ -1,6 +1,6 @@
 package berlinclock;
 
-public class ClockBodySecondMiddleRow extends ClockBody {
+public class ClockRowsSecondMiddleRow extends ClockRows {
   private static final String SECOND_MIDDLE_ROW_FORMATTER =
       "[%s][%s][%s][%s][%s][%s][%s][%s][%s][%s][%s]";
 
@@ -10,7 +10,7 @@ public class ClockBodySecondMiddleRow extends ClockBody {
 
   private final int minutes;
 
-  public ClockBodySecondMiddleRow(int minutes) {
+  public ClockRowsSecondMiddleRow(int minutes) {
     this.minutes = minutes;
   }
 
