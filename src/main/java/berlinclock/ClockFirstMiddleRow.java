@@ -15,6 +15,6 @@ public class ClockFirstMiddleRow extends ClockRows {
   }
 
   public String get() {
-    return new Lamps(numberOfLampsToSwitchOn, RED_LAMP, FIRST_MIDDLE_ROW_FORMATTER).getRow();
+    return new Lamps(numberOfLampsToSwitchOn, MAX_LAMPS_PER_ROW, RED_LAMP, FIRST_MIDDLE_ROW_FORMATTER).getRow();
   }
 }

@@ -16,7 +16,7 @@ public class ClockSecondMiddleRow extends ClockRows {
   private static final int SIXTH_POSITION = 5;
   private static final int NINTH_POSITION = 8;
 
-  private static final int MAX_LAMPS_PER_ROW = 11;
+  protected int MAX_LAMPS_PER_ROW = 11;
 
   private final int minutes;
   private final int numberOfLampsToSwitchOn;
@@ -30,7 +30,7 @@ public class ClockSecondMiddleRow extends ClockRows {
     final List<LampState> rowOfLamps = new ArrayList<>();
 
     if (minutes < FIVE_MINUTES) {
-      toggleLampsOnOrOff(rowOfLamps, (index) -> LAMP_OFF);
+      toggleLampsOnOrOff(rowOfLamps, index -> LAMP_OFF);
     } else {
       toggleLampsOnOrOff(rowOfLamps, this::evaluateLamp);
     }
