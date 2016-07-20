@@ -20,7 +20,7 @@ import org.junit.runners.Parameterized.Parameters;
 @RunWith(Parameterized.class)
 public class BerlinClockConverterShould {
   private final LocalTime givenTime;
-  private final String displayClock;
+  private final String equivalentClock;
 
   @Parameters (name="{index}: for givenTime {0}")
   public static Collection<Object[]> data() {
@@ -283,14 +283,14 @@ public class BerlinClockConverterShould {
     );
   }
 
-  public BerlinClockConverterShould(String givenTime, String displayClock) {
+  public BerlinClockConverterShould(String givenTime, String equivalentClock) {
     this.givenTime = convertStringToLocalTime(givenTime);
-    this.displayClock = displayClock;
+    this.equivalentClock = equivalentClock;
   }
 
   @Test public void
   show_an_equivalent_clock_display_for_the_given_time() {
-    assertThat(displayTimeFor(givenTime), is(displayClock));
+    assertThat(displayTimeFor(givenTime), is(equivalentClock));
   }
 
   private LocalTime convertStringToLocalTime(String timeAsString) {
