@@ -1,6 +1,6 @@
 package berlinclock.rows;
 
-import static berlinclock.lamps.LampState.YELLOW_LAMP;
+import static berlinclock.lamps.LampState.YELLOW;
 
 import java.time.LocalTime;
 
@@ -18,7 +18,7 @@ public class ClockBottomRow extends ClockRows {
 
   public String get() {
     return new Lamps(
-        numberOfLampsToSwitchOn, getMaximumLampsPerRow(), (lampIndex) -> YELLOW_LAMP, BOTTOM_ROW_FORMATTER
+        numberOfLampsToSwitchOn, getMaximumLampsPerRow(), (lampIndex) -> YELLOW, BOTTOM_ROW_FORMATTER
     ).get();
   }
 }

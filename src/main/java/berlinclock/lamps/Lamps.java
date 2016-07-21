@@ -31,7 +31,7 @@ public class Lamps {
       lamps.add(
           lampIndex < numberOfLampsToSwitchOn
           ? evaluateLamp.apply(lampIndex)
-          : LAMP_OFF
+          : OFF
       );
       lampIndex++;
     }

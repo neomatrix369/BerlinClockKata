@@ -1,9 +1,9 @@
 package berlinclock.lamps;
 
 public enum LampState {
-  LAMP_OFF("O"),
-  RED_LAMP("R"),
-  YELLOW_LAMP("Y");
+  OFF("O"),
+  RED("R"),
+  YELLOW("Y");
 
   private final String state;
 

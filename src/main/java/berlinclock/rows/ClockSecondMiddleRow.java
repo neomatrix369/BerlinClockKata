@@ -1,8 +1,8 @@
 package berlinclock.rows;
 
-import static berlinclock.lamps.LampState.LAMP_OFF;
-import static berlinclock.lamps.LampState.RED_LAMP;
-import static berlinclock.lamps.LampState.YELLOW_LAMP;
+import static berlinclock.lamps.LampState.OFF;
+import static berlinclock.lamps.LampState.RED;
+import static berlinclock.lamps.LampState.YELLOW;
 
 import java.time.LocalTime;
 
@@ -39,16 +39,16 @@ public class ClockSecondMiddleRow extends ClockRows {
 
   private EvaluateLamp toggleLampsOnOrOff() {
     return minutes < FIVE_MINUTES
-        ? lampIndex -> LAMP_OFF
+        ? lampIndex -> OFF
         : this::evaluateLampAt;
   }
 
   private LampState evaluateLampAt(int index) {
     return index < numberOfLampsToSwitchOn
       ? isItThe3rd6thOr9thPosition(index)
-          ? RED_LAMP
-          : YELLOW_LAMP
-      : LAMP_OFF;
+          ? RED
+          : YELLOW
+      : OFF;
   }
 
   private boolean isItThe3rd6thOr9thPosition(int lampIndex) {
