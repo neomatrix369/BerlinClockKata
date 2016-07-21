@@ -1,4 +1,4 @@
-package berlinclock;
+package berlinclock.lamps;
 
 public enum LampState {
   LAMP_OFF("O"),

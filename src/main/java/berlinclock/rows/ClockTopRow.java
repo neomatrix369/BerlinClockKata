@@ -1,8 +1,10 @@
-package berlinclock;
+package berlinclock.rows;
 
-import static berlinclock.LampState.RED_LAMP;
+import static berlinclock.lamps.LampState.RED_LAMP;
 
 import java.time.LocalTime;
+
+import berlinclock.lamps.Lamps;
 
 public class ClockTopRow extends ClockRows {
   private static final String TOP_ROW_FORMATTER =
@@ -16,10 +18,7 @@ public class ClockTopRow extends ClockRows {
 
   public String get() {
     return new Lamps(
-        numberOfLampsToSwitchOn,
-        MAXIMUM_LAMPS_PER_ROW,
-        (index) -> RED_LAMP,
-        TOP_ROW_FORMATTER
-    ).getRow();
+        numberOfLampsToSwitchOn, getMaximumLampsPerRow(), (index) -> RED_LAMP, TOP_ROW_FORMATTER
+    ).get();
   }
 }

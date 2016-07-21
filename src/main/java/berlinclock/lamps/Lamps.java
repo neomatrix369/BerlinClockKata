@@ -1,7 +1,8 @@
-package berlinclock;
+package berlinclock.lamps;
 
 import static java.lang.String.format;
-import static berlinclock.LampState.LAMP_OFF;
+
+import static berlinclock.lamps.LampState.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,7 +23,7 @@ public class Lamps {
     this.maximumLampsPerRow = maximumLampsPerRow;
   }
 
-  public String getRow() {
+  public String get() {
     final List<LampState> lamps = new ArrayList<>();
 
     int index = 0;

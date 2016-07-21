@@ -4,6 +4,11 @@ import static java.lang.String.format;
 
 import java.time.LocalTime;
 
+import berlinclock.rows.ClockBottomRow;
+import berlinclock.rows.ClockFirstMiddleRow;
+import berlinclock.rows.ClockSecondMiddleRow;
+import berlinclock.rows.ClockTopRow;
+
 public class BerlinClockConverter {
 
   private static final String FOUR_ROWS_OF_THE_CLOCK = "%s\n%s\n%s\n%s\n";
