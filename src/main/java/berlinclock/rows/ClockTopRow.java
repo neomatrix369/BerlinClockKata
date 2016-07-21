@@ -10,7 +10,7 @@ public class ClockTopRow extends ClockRows {
   private static final String TOP_ROW_FORMATTER =
       "[%s]      [%s]      [%s]      [%s]";
 
-  private int numberOfLampsToSwitchOn;
+  private final int numberOfLampsToSwitchOn;
 
   public ClockTopRow(LocalTime time) {
     numberOfLampsToSwitchOn = time.getHour() / FIVE_HOURS;
@@ -18,7 +18,7 @@ public class ClockTopRow extends ClockRows {
 
   public String get() {
     return new Lamps(
-        numberOfLampsToSwitchOn, getMaximumLampsPerRow(), (index) -> RED_LAMP, TOP_ROW_FORMATTER
+        numberOfLampsToSwitchOn, getMaximumLampsPerRow(), (lampIndex) -> RED_LAMP, TOP_ROW_FORMATTER
     ).get();
   }
 }

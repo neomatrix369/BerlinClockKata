@@ -18,7 +18,7 @@ public class ClockBottomRow extends ClockRows {
 
   public String get() {
     return new Lamps(
-        numberOfLampsToSwitchOn, getMaximumLampsPerRow(), (index) -> YELLOW_LAMP, BOTTOM_ROW_FORMATTER
+        numberOfLampsToSwitchOn, getMaximumLampsPerRow(), (lampIndex) -> YELLOW_LAMP, BOTTOM_ROW_FORMATTER
     ).get();
   }
 }

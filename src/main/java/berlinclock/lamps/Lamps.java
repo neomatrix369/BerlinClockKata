@@ -11,7 +11,7 @@ public class Lamps {
   private final int numberOfLampsToSwitchOn;
   private final EvaluateLamp evaluateLamp;
   private final String rowFormatter;
-  private int maximumLampsPerRow;
+  private final int maximumLampsPerRow;
 
   public Lamps(int numberOfLampsToSwitchOn,
       int maximumLampsPerRow,
@@ -26,14 +26,14 @@ public class Lamps {
   public String get() {
     final List<LampState> lamps = new ArrayList<>();
 
-    int index = 0;
-    while (index < maximumLampsPerRow) {
+    int lampIndex = 0;
+    while (lampIndex < maximumLampsPerRow) {
       lamps.add(
-          index < numberOfLampsToSwitchOn
-          ? evaluateLamp.apply(index)
+          lampIndex < numberOfLampsToSwitchOn
+          ? evaluateLamp.apply(lampIndex)
           : LAMP_OFF
       );
-      index++;
+      lampIndex++;
     }
 
     return format(rowFormatter, lamps.toArray());

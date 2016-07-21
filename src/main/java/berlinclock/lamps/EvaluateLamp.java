@@ -1,5 +1,5 @@
 package berlinclock.lamps;
 
 public interface EvaluateLamp {
-  LampState apply(int index);
+  LampState apply(int lampIndex);
 }

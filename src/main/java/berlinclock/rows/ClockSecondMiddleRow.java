@@ -31,7 +31,7 @@ public class ClockSecondMiddleRow extends ClockRows {
     return new Lamps(
         numberOfLampsToSwitchOn, getMaximumLampsPerRow(),
         minutes < FIVE_MINUTES
-            ? index -> LAMP_OFF
+            ? lampIndex -> LAMP_OFF
             : this::evaluateLampAt,
         SECOND_MIDDLE_ROW_FORMATTER
     ).get();
@@ -45,10 +45,10 @@ public class ClockSecondMiddleRow extends ClockRows {
       : LAMP_OFF;
   }
 
-  private boolean replace3rd6thAnd9thPositionsWithRed(int index) {
+  private boolean replace3rd6thAnd9thPositionsWithRed(int lampIndex) {
     return
-        (index == THIRD_POSITION) ||
-        (index == SIXTH_POSITION) ||
-        (index == NINTH_POSITION);
+        (lampIndex == THIRD_POSITION) ||
+        (lampIndex == SIXTH_POSITION) ||
+        (lampIndex == NINTH_POSITION);
   }
 }
