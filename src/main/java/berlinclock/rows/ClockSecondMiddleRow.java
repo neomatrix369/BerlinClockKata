@@ -6,6 +6,7 @@ import static berlinclock.lamps.LampState.YELLOW_LAMP;
 
 import java.time.LocalTime;
 
+import berlinclock.lamps.EvaluateLamp;
 import berlinclock.lamps.LampState;
 import berlinclock.lamps.Lamps;
 
@@ -29,23 +30,28 @@ public class ClockSecondMiddleRow extends ClockRows {
 
   public String get() {
     return new Lamps(
-        numberOfLampsToSwitchOn, getMaximumLampsPerRow(),
-        minutes < FIVE_MINUTES
-            ? lampIndex -> LAMP_OFF
-            : this::evaluateLampAt,
+        numberOfLampsToSwitchOn,
+        getMaximumLampsPerRow(),
+        toggleLampsOnOrOff(),
         SECOND_MIDDLE_ROW_FORMATTER
     ).get();
   }
 
+  private EvaluateLamp toggleLampsOnOrOff() {
+    return minutes < FIVE_MINUTES
+        ? lampIndex -> LAMP_OFF
+        : this::evaluateLampAt;
+  }
+
   private LampState evaluateLampAt(int index) {
     return index < numberOfLampsToSwitchOn
-      ? replace3rd6thAnd9thPositionsWithRed(index)
+      ? isItThe3rd6thOr9thPosition(index)
           ? RED_LAMP
           : YELLOW_LAMP
       : LAMP_OFF;
   }
 
-  private boolean replace3rd6thAnd9thPositionsWithRed(int lampIndex) {
+  private boolean isItThe3rd6thOr9thPosition(int lampIndex) {
     return
         (lampIndex == THIRD_POSITION) ||
         (lampIndex == SIXTH_POSITION) ||
