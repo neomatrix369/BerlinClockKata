@@ -1,6 +1,8 @@
 Berlin Clock Kata
 =================
 
+See [wikipedia](https://en.wikipedia.org/wiki/Mengenlehreuhr) for background details.
+
 Create a representation of the Berlin Clock for a given time (hh::mm:ss).
 
 The Berlin Uhr (Clock) is a rather strange way to show the time.
